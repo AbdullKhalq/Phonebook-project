@@ -1,17 +1,21 @@
-Phonebook = {1111: 'Layla',
-             2222: 'Mohammed'}  # Dictionary using numbers as keys
+# A simple phonebook project made by AbdulKhaliq Alhassan as part of completing Python 101 on Satr.codes
+
+import math  # To find number of digits in number without converting to string which is slower
+
+Phonebook = {1111111111: "Layla",
+             2222222222: "Mohammed",
+             3333333333: "Manal"}  # Dictionary using numbers as keys
 
 
 def searching():
-    search = input('Type number: ')  # input from user
-    try:
-        search = int(search)  # checking if input is only numbers and integer, then doing searching
+    search = int(input("Type number: "))  # input from user
+    if int(math.log10(search)) + 1 == 10:
         if search in Phonebook.keys():
-            print('This number is for', Phonebook[search])
+            print(f"This number is for {Phonebook[search]}")
         else:
-            print('Sorry, this number and its owner is not available')
-    except ValueError:  # if input is not numbers and integer only
-        print('This number is invalid')
+            print("Sorry, the number was not found")
+    else:
+        print("Invalid number")
 
 
 searching()  # calling function to start the code
